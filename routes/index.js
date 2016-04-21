@@ -8,15 +8,14 @@ router.get('/', function(req, res, next) {
 
 /* GET message  page. */
 router.get('/msg', function(req, res, next) {
-  res.render('message', { title: 'Message' });
+  res.render('index', { title: 'Message' });
 });
 
 
 /* Post message  page. */
 router.post('/msg', function(req, res, next) {
-	 console.log(req.body.title);
-    console.log(req.body.description);
-  res.render('message', { title: 'Message' });
+
+  res.render('index', { title: 'Message' });
 });
 
 module.exports = router;

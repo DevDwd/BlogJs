@@ -3,5 +3,12 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
   body
-    block content
+    div.container
+        div.row
+            div.col-sm-8
+                block content
+            div.col-sm-4
+                include ./message.jade
+
