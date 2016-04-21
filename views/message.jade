@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title
+    #preview
+    #user_in_talk
+    form(name="new-message")
+        div.input
+            span.label Votre Message
+            textarea(name="description", cols="40", rows="5", id="content")
+        div.actions
+            input(type="submit", value="send", id="msg-submit")
+    script(src='/javascripts/jquery.min.js')
+    script(src='http://localhost:3000/socket.io/socket.io.js')
+    script(src='/javascripts/msg_code.js')
+
