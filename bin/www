@@ -37,22 +37,21 @@ var list = [];
 
 io.sockets.on('connection', function (socket) {
    /* body... */ 
-   console.log('ecoute...');
-     // Dès qu'on nous donne un pseudo, on le stocke en variable de session
+
+   //envoi la liste des utilisateur connecté et l'affiche sur la page de messagerie /msg
+   socket.emit('get_all_talker', author_list);
+     // Dès qu'on nous donne un pseudo, on le stocke dans le socket
     socket.on('petit_nouveau', function(pseudo) {
         socket.pseudo = pseudo;
         author_list.push(pseudo);
-        console.log(author_list);
         // On signale aux autres clients qu'il y a un nouveau venu
         socket.broadcast.emit('new_talker', pseudo);
     });
 
- 
+ //on ecoute la soummision d'un formulaire de message et on ajoute le message a la liste des autres messages
    socket.on('fill', function(data) {
-    console.log(list);
     list.push({"author": socket.pseudo,"content":data.content,"date": getDateTime()});
-    console.log(list);
-    var id = 'amirmuerte@gmail.com';
+    //on envoi le message a tous les autres
     socket.broadcast.emit('message', {"author": socket.pseudo,"content":data.content,"date": getDateTime()});
     socket.emit('message', {"author": socket.pseudo,"content":data.content,"date": getDateTime()});
     

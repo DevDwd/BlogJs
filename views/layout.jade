@@ -3,6 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/msg_code.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
   body
     div.container
@@ -10,5 +11,10 @@ html
             div.col-sm-8
                 block content
             div.col-sm-4
-                include ./message.jade
+                block message
+    include ./footer.jade
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/bootstrap.js')
+    script(src='http://localhost:3000/socket.io/socket.io.js')
+    script(src='/javascripts/msg_code.js')
 

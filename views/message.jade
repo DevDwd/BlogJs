@@ -1,24 +1,23 @@
+extends layout
 
-div.sidebar-right
-    div.content
-        table.table.table-striped
-            thead
-                tr
-                    th Nom
-                    th Etat
-            tbody#message-row
+block message
+    div.sidebar-right
+        div.content
+            table.table.table-striped
+                thead
+                    tr
+                        th Nom
+                        th Etat
+                tbody#message-row
 
-    h4 conversation
-    #preview
-    #user_in_talk
-    div.row
-        form(name="new-message", class="form-horizontal")
-            div.input
-                textarea(name="description", rows="3", id="msg-content", class="form-control")
-            div.actions
-                input(type="submit", value="send", id="msg-submit", class="btn btn-default")
-        script(src='/javascripts/jquery.min.js')
-        script(src='/javascripts/bootstrap.js')
-        script(src='http://localhost:3000/socket.io/socket.io.js')
-        script(src='/javascripts/msg_code.js')
+        h4 conversation
+        #preview
+        #user_in_talk
+        div.row
+            form(name="new-message", class="form-horizontal")
+                div.input
+                    textarea(name="description", rows="3", id="msg-content", class="form-control")
+                div.actions
+                    input(type="submit", value="send", id="msg-submit", class="btn btn-default")
+
 
